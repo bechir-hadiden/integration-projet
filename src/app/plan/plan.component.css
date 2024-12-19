@@ -1,0 +1,78 @@
+.modal {
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1040;
+  }
+  
+  .modal {
+    z-index: 1050;
+  }
+  
+  .btn-group {
+    margin-right: 10px;
+  }
+  
+  .btn-group .btn {
+    margin-right: 5px;
+  }
+  
+  .selected {
+    background-color: #0056b3 !important;
+  }
+  
+  .form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-control {
+    margin-bottom: 1rem;
+  }
+  
+  .modal-content {
+    border-radius: 8px;
+  }
+  
+  .modal-header {
+    background-color: #f8f9fa;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .modal-footer {
+    background-color: #f8f9fa;
+    border-radius: 0 0 8px 8px;
+  }
+  
+  #calendar-centainer {
+    padding: 20px;
+  }
+  
+  #cal-buttons {
+    margin-bottom: 20px;
+  }
+  
+  #cal-date-field {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+
+  .video-container {
+    display: flex; /* Utilise Flexbox pour disposer les vidéos côte à côte */
+    justify-content: space-between; /* Espace entre les vidéos */
+    margin-bottom: 20px; /* Espace entre les lignes */
+}
+iframe {
+  margin-left: 60px;
+  margin-right: 60px;
+    width: 40%; /* Largeur des vidéos, ajustez selon vos besoins */
+    height: 360px; /* Hauteur fixe */
+}

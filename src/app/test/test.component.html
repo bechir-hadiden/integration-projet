@@ -1,0 +1,178 @@
+
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+    </head>
+<body>
+<!-- 
+      <div class="dashboard-container">
+        <h1>Tableau de bord Santé & Sport</h1>
+        
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3>Pas Quotidiens</h3>
+            <div class="stat-value">{{statistiquesSante.pasQuotidiens}}</div>
+          </div>
+      
+          <div class="stat-card">
+            <h3>Calories Brûlées</h3>
+            <div class="stat-value">{{statistiquesSante.caloriesBrulees}} kcal</div>
+          </div>
+      
+          <div class="stat-card">
+            <h3>Temps d'exercice</h3>
+            <div class="stat-value">{{statistiquesSante.minutesExercice}} min</div>
+          </div>
+      
+          <div class="stat-card">
+            <h3>Fréquence Cardiaque</h3>
+            <div class="stat-value">{{statistiquesSante.frequenceCardiaque}} bpm</div>
+          </div>
+        </div>
+      
+        <div class="charts-grid">
+          <div class="chart-card">
+            <h3>Évolution des pas quotidiens</h3>
+            <canvas baseChart
+              [type]="'line'"
+              [data]="lineChartData"
+              [options]="lineChartOptions">
+            </canvas>
+          </div>
+      
+          <div class="chart-card">
+            <h3>Répartition Activité/Repos</h3>
+            <canvas baseChart
+              [type]="'pie'"
+              [data]="pieChartData"
+              [options]="pieChartOptions">
+            </canvas>
+          </div>
+        </div>
+      </div> -->
+    
+      <div class="charts">
+        <div class="chart">
+            <h2 style="text-align: center; text-decoration: underline; text-size-adjust: 80px; color: #0e76a8; font-size: x-large;">Suivi des Indicateurs Nutritionnels et d'Hydratation Quotidiens</h2><br><br>
+            <div>
+                <!-- <canvas id="lineChart"></canvas> -->
+                <div class="card shadow mb-4">
+    
+                    <div class="card-body">
+      <h3 class="small font-weight-bold">Consommation de sucres ajoutés par jour"</h3>
+                        <div class="progress mb-4">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
+                                aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <h3 class="small font-weight-bold">Proportion de graisses saturées dans l'alimentation</h3>
+                        <div class="progress mb-4">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
+                                aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <h3 class="small font-weight-bold">Apport quotidien en protéines </h3>
+                        <div class="progress mb-4">
+                            <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <h3 class="small font-weight-bold">Hydratation moyenne (litres d'eau par jour)</h3>
+                        <div class="progress mb-4">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
+                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <h3 class="small font-weight-bold">Consommation de légumes et de fruits frais</h3>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
+                                aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chart doughnut-chart" >
+            <h2 style="text-decoration: underline; color: #0e76a8; font-size: x-large;" >Analyse de la Répartition des Objectifs</h2>
+            <div>
+                <canvas id="doughnut"></canvas>
+                <div class="chart-container"style="margin-top: 20%;">
+                    <div class="chart-title"></div><br>
+                    <div class="donut-chart">
+                        <div class="slice slice-1"></div>
+                        <div class="slice slice-2"></div>
+                        <div class="slice slice-3"></div>
+                        <div class="slice slice-4"></div>
+                    </div>
+                    <div class="legend">
+                        <div class="legend-item"><span class="legend-color academic"></span>Objectifs Attendus</div>
+                        <div class="legend-item"><span class="legend-color non-academic"></span> En Cours de Répartition</div>
+                        <!-- <div class="legend-item"><span class="legend-color administration"></span> Administration</div>
+                        <div class="legend-item"><span class="legend-color others"></span> Others</div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <script src="../../Jquery/prettify.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+      <script src="chart1.js">
+          var ctx = document.getElementById('lineChart').getContext('2d');
+          var myChart = new Chart(ctx, {
+              type: 'line',
+              data: {
+                  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                  datasets: [{
+                      label: 'Earnings in $',
+                      data: [2050, 1900, 2100, 2800, 1800, 2000, 2500, 2600, 2450, 1950, 2300, 2900],
+                      backgroundColor: [
+                          'rgba(85,85,85, 1)'
+  
+                      ],
+                      borderColor: 'rgb(41, 155, 99)',
+  
+                      borderWidth: 1
+                  }]
+              },
+              options: {
+                  responsive: true
+              }
+          });
+      </script>
+      <script src="chart2.js">
+          var ctx2 = document.getElementById('doughnut').getContext('2d');
+          var myChart2 = new Chart(ctx2, {
+              type: 'doughnut',
+              data: {
+                  labels: ['Academic', 'Non-Academic', 'Administration', 'Others'],
+  
+                  datasets: [{
+                      label: 'Employees',
+                      data: [42, 12, 8, 6],
+                      backgroundColor: [
+                          'rgba(41, 155, 99, 1)',
+                          'rgba(54, 162, 235, 1)',
+                          'rgba(255, 206, 86, 1)',
+                          'rgba(120, 46, 139,1)'
+  
+                      ],
+                      borderColor: [
+                          'rgba(41, 155, 99, 1)',
+                          'rgba(54, 162, 235, 1)',
+                          'rgba(255, 206, 86, 1)',
+                          'rgba(120, 46, 139,1)'
+  
+                      ],
+                      borderWidth: 1
+                  }]
+  
+              },
+              options: {
+                  responsive: true
+              }
+          });
+      </script>
+  </body>
+  
+  </html>

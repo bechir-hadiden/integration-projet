@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" routerLink="/acceuil">
+                <img src="assets/imgl.png" alt="MORNEGA" class="logo" >
+            </a>
+      
+            <!-- Bouton hamburger pour mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+      
+            <!-- Contenu de la navbar -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <!-- Menu principal -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size: 130%;">
+                    <li class="nav-item" >
+                        <a class="nav-link active"  fragment="sante">Nutrition</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Maladies</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                          Exercice
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Formation Continue</a></li>
+                            <li><a class="dropdown-item" href="#">Coaching</a></li>
+                            <li><a class="dropdown-item" href="#">Certification</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">A propros nous</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" routerLink="/m">Contact</a>
+                  </li>
+                </ul>
+      
+      <!-- Partie utilisateur -->
+      <div class="nav-user-section">
+        <!-- Si non connecté -->
+        <div class="user-actions" >
+            <a routerLink="/login" class="nav-link" >
+                <i class="fas fa-user-circle"></i> Se connecter
+            </a>
+
+            <li id="sign-up" *ngIf="authService.isloggedIn">
+                <p  >{{authService.loggedUser}}</p>
+  
+              </li>
+        </div>
+      
+        <!-- Si connecté -->
+        <div class="user-profile dropdown" >
+            <a class="nav-link dropdown-toggle user-menu" href="#" role="button" data-bs-toggle="dropdown" style="margin-right: 100%;">
+                <img  src="../assets/adminstration.png " alt="Administration" class="user-photo" height="50px" > 
+                <span class="user-name"></span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" routerLink="/login"><i class="fas fa-user"></i> Administration </a></li>
+                <li *ngIf="authService.isAdmin()"><a class="dropdown-item" routerLink="/plan"  ><i class="fas fa-user"  ></i> Partie utulisateur </a></li>
+
+                <!-- <li><a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Paramètres</a></li> -->
+                <li><hr class="dropdown-divider"*ngIf="authService.isAdmin()"></li>
+                <li><a class="dropdown-item" href="#" *ngIf="authService.isAdmin()" >
+                    <i class="fas fa-sign-out-alt" *ngIf="authService.isloggedIn" (click) = "onLogout()"  ></i> Déconnexion
+                </a></li>
+            </ul>
+        </div>
+      </div>
+            </div>
+        </div>
+      </nav>
+
+
+    <section>
+        <div class="acceuil">
+            <img src="../assets/photo_acceuil.png">
+            <div class="paragraphe">
+                <H1>Une bonne santé, c'est d'abord une bonne alimentation</H1>
+                <p>Vous voulez faire plus attention à ce que vous mangez ? Faites un suivi de vos repas,apprenez-en plus
+                    sur vos
+                    habitudes et atteignez vos objectifs avec MyFitnessPal.</p>
+            </div>
+            <button class="btn_primary" routerLink="/login">Démarrez Gartuitement</button>
+        </div>
+    </section>
+
+
+
+    <div class="actuliser  ">
+        <h2 class="section__title text-success"><span class="underline">Nos</span> Equilibre Alimentaire et bien-etre
+        </h2>
+    </div>
+    <!-- <section class="partie_legume">
+        <div class="img_salade">
+            <img src="..\assets\fruits.png">
+
+        </div>
+        <h2 style="color: black; text-align: center; text-justify: auto; margin-top: 40px;">Être en bonne santé, c'est
+            avant tout bien
+            manger. <br>Voici notre liste d'aliments du moment
+            à consommer sans moderation</h2>
+        <section id="popular-destination">
+            <img src="..\assets\add.png" height="30px" routerLink="/add-legume" *ngIf="authService.isAdmin()" >
+            <div class="content">
+                <div class="box" *ngFor="let  event of image">
+                    <img [src]="event.image" [alt]="event.name" style="max-width: 300px; height: 300px;">
+                    <p *ngIf="event.message">{{ event.message}}</p>
+                    <button type="button" class="btn btn-danger" (click)="supprimerImage(event)">Supprimer</button>
+                </div>
+                
+            </div>
+            <button class="btn_legum" routerLink="/login">Pour plus de details</button>
+
+        </section>
+
+    </section> -->
+
+
+    <!-- <section class="vegetables-section">
+        <div class="header-image">
+            <img src="..\assets\fruits.png" alt="Fruits">
+        </div>
+        <h2>Être en bonne santé, c'est avant tout bien manger. <br>Voici notre liste d'aliments du moment à consommer sans moderation</h2>
+        
+        <section class="vegetables-gallery">
+            <img src="..\assets\add.png" height="30px" routerLink="/add-legume" *ngIf="authService.isAdmin()" class="add-icon">
+            <div class="gallery-grid">
+                <div class="vegetable-card" *ngFor="let event of image">
+                    <div class="vegetable-image">
+                        <img [src]="event.image" [alt]="event.name">
+                    </div>
+                    <p class="vegetable-description" *ngIf="event.message">{{ event.message }}</p>
+                    <button type="button" class="delete-button" (click)="supprimerImage(event)">Supprimer</button>
+                </div>
+            </div>
+            <button class="details-button" routerLink="/login">Pour plus de details</button>
+        </section>
+    </section> -->
+    <div  class="imageSante"  >
+        <img class="sante-sante" src="..\assets\sante.png"  style="right: 40%;"   ><br>
+        <h2 style="color: black;   text-align: center; margin-top: 2%;">La santé est notre bien le plus précieux <br>prenez soin de vous en adoptant un mode de vie actif et équilibré</h2>
+    </div>
+    
+    <!-- 
+<app-test></app-test> -->
+    <section id ="sante" >
+
+        <section class="partie_sante">
+            <div class="img_sante">
+            </div>
+            <img src="..\assets\add.png" height="30px" routerLink="/add-sante"  *ngIf="authService.isAdmin()">
+            <div class="content">
+                <div class="box_sante" *ngFor="let  event of imagesSante">
+                    <img [src]="event.image" [alt]="event.name" style="max-width: 300px; height: 300px;">
+                    <p *ngIf="event.message">{{event.message}}</p>
+                    <button type="button" class="btn btn-danger" 
+                        (click)="supprimerImageSante(event)" *ngIf="authService.isAdmin()">Supprimer</button>
+                </div>
+            </div>
+            <button class="btn_sante" routerLink="/login">Pour plus de details</button>
+
+        </section>
+    </section>
+    <div class="partie_histoire">
+        <H1>Histoires de réussites</H1>
+        <p>Chaque jour, plus de 3 000 membres atteignent leurs objectifs avec FitMaster. Laissez-vous inspirer par le
+            voyage qui vous attend.</p>
+        <app-slider></app-slider>
+    </div>
+
+
+
+</body>
+<!-- <app-footer></app-footer> -->
+
+
+
+<footer class="footer-section">
+    <div class="container">
+        <div class="footer-content pt-5 pb-5">
+            <div class="row">
+                <!-- À propos -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-info">
+                        <h2>Sport & Sante</h2>
+                        <p class="footer-description">
+                            Votre partenaire de confiance pour la formation professionnelle
+                            et le développement des compétences.
+                        </p>
+                        <div class="social-links mt-3">
+                            <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Liens utiles -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h4>Liens Utiles</h4>
+                    <ul class="footer-links">
+                        <li><a href="#sante">Nutrition</a></li>
+                        <li><a href="#">Maladies</a></li>
+                        <li><a href="#"> Exercice</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">A propros nous</a></li>
+
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h4>Nos Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Formation Continue</a></li>
+                        <li><a href="#">Coaching Professionnel</a></li>
+                        <li><a href="#">Développement Personnel</a></li>
+                        <li><a href="#">Certification</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h4>Contactez-nous</h4>
+                    <div class="footer-contact-info">
+                        <p>
+                            <i class="fas fa-map-marker-alt"></i>
+                            center ville, C35, Nabeul
+                        </p>
+                        <p>
+                            <i class="fas fa-phone"></i>
+                            +216 71 301 718
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope"></i>
+                            bechirhadidengmail.com
+                        </p>
+                        <p>
+                            <i class="fas fa-clock"></i>
+                            Lundi-Vendredi: 9h00 - 17h00
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+     <center>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-md-0 text-center text-md-left">
+                        ©
+                        <script>document.write(new Date().getFullYear())</script> Sport & Sonte . Tous droits réservés.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</center>
+</footer>
+
+</html>

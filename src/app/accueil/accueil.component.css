@@ -1,0 +1,766 @@
+:root {
+  --color-primary: #f5a360;
+  --color-primary-50: rgba(245, 163, 96, 0.50196);
+  --color-secondary: #f5c947;
+  --color-secondary-50: rgba(245, 201, 71, 0.50196);
+  --color-tertiary: #614126;
+  --color_primary: var(--color-primary);
+}
+
+.text-success {
+    color: #3fdc7b !important;
+    margin-right: 3% ;
+}
+
+
+.text-successe {
+  color: #0e76a8 !important;
+  margin-right: 3% ;
+}
+
+
+#popular-destination {
+  padding: 0 10%;
+  margin-bottom: 50px;
+  margin-top: 5%;
+}
+
+#popular-destination .content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  justify-items: center; /* Centre les éléments horizontalement */
+  align-items: start; /* Aligne les éléments verticalement au début */
+}
+
+#popular-destination .content .box {
+  display: flex;
+  flex-direction: column; /* Organisation verticale des éléments */
+  align-items: center; /* Centre horizontalement les éléments */
+  text-align: center; /* Aligne le texte au centre */
+  overflow: hidden;
+  padding: 16px;
+  border: 1px solid #ddd; /* Optionnel : ajoute une bordure */
+  border-radius: 8px; /* Optionnel : coins arrondis */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optionnel : effet d'ombre */
+  /* transition: 0.3s ease; */
+}
+
+#popular-destination .content .box img {
+  max-width: 200px; /* Taille maximale de l'image */
+  height: auto; /* Conserve le ratio de l'image */
+  margin-bottom: 8px; /* Espacement avec le texte */
+  object-fit: contain; /* Garde l'intégrité de l'image */
+}
+
+#popular-destination .content .box p {
+  margin: 8px 0; /* Espacement au-dessus et au-dessous du texte */
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+#popular-destination .content .box button {
+  margin-top: 12px; /* Espacement entre le texte et le bouton */
+  padding: 8px 16px;
+  font-size: 14px;
+  background-color: #e74c3c; /* Couleur rouge */
+  color: #fff;
+  border: none;
+  border-radius: 4px; /* Coins arrondis */
+  /* transition: background-color 0.3s ease; */
+}
+
+#popular-destination .content .box button:hover {
+  background-color: #c0392b; /* Couleur rouge plus foncée au survol */
+  cursor: pointer; /* Curseur en forme de main */
+
+}
+
+.box .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 120%;
+    width: 120%;
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    align-items: center;
+    transform: translateX(100%);
+    /* transition: 0.5s; */
+}
+.box .content  h4 {
+    font-size: 25px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.box .content p {
+    padding: 2px;
+    font-size: 12px;
+}
+.box .content p:nth-child(3){
+    margin-bottom: 25px;
+}
+.box .content a {
+    margin-top: 60px;
+    padding: 10px 60px;
+    /* border: 2px solid #29d9d5;
+    color: #29d9d5; */
+    font-weight: bold;
+}
+/* .box:hover {
+    box-shadow: 0 0 10px #29d9d5;
+} */
+.box:hover .content {
+    transform: translateX(0);
+}
+
+.content .box p 
+{
+  margin-left: 20%;
+  margin-top: 7%;
+  text-decoration: underline;
+
+}
+
+.actuliser 
+{
+
+    padding-top: 10%; 
+    margin-right: 30% ;
+    left: 30%;
+    
+}
+.actuliser-sante
+{
+
+    padding-top: 40%; 
+    margin-right: 30% ;
+    left: 30%;
+    
+}
+
+.section__title
+{
+    margin-left: 8%;
+    font-size: 2em; /* Ajustez selon vos besoins */
+
+    bottom: -10px; /* Ajustez la position verticale selon vos besoins */
+    left: 0;
+    
+}
+.section__title {
+    color: #39e66c; /* Couleur du texte */
+    font-weight: bold;
+    font-size: 2em; /* Ajustez selon vos besoins */
+}
+
+.underline {
+    position: relative;
+    display: inline-block;
+}
+
+.underline::after {
+    content: "";
+    position: absolute;
+    bottom: -5px; /* Ajustez la position verticale selon vos besoins */
+    left: 0;
+    width: 100%; /* Largeur de la ligne */
+    height: 4px; /* Épaisseur de la ligne */
+    background-color: #39e66c; /* Couleur de la ligne */
+}
+
+
+
+
+.underline:hover {
+    color: red; /* Change text color on hover */
+}
+
+.underline:hover::after {
+    background-color: red; /* Change line color on hover */
+}
+
+.title
+{
+    margin-top: 4%;
+    margin-left: 9%;
+    margin-right: 10%;
+    font-family: sans-serif;   
+     font-size: 2em;
+     font-weight: bold;
+}
+
+
+.footer-clean {
+    padding:50px 0;
+    background-color:#fff;
+    color:#4b4c4d;
+  }
+  
+  .footer-clean h3 {
+    margin-top:0;
+    margin-bottom:12px;
+    font-weight:bold;
+    font-size:16px;
+  }
+  
+  .footer-clean ul {
+    padding:0;
+    list-style:none;
+    line-height:1.6;
+    font-size:14px;
+    margin-bottom:0;
+  }
+  
+  .footer-clean ul a {
+    color:inherit;
+    text-decoration:none;
+    opacity:0.8;
+  }
+  
+  .footer-clean ul a:hover {
+    opacity:1;
+  }
+  
+  .footer-clean .item.social {
+    text-align:right;
+  }
+  
+  @media (max-width:767px) {
+    .footer-clean .item {
+      text-align:center;
+      padding-bottom:20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .footer-clean .item.social {
+      text-align:center;
+    }
+  }
+  
+  .footer-clean .item.social > a {
+    font-size:24px;
+    width:40px;
+    height:40px;
+    line-height:40px;
+    display:inline-block;
+    text-align:center;
+    border-radius:50%;
+    border:1px solid #ccc;
+    margin-left:10px;
+    margin-top:22px;
+    color:inherit;
+    opacity:0.75;
+  }
+  
+  .footer-clean .item.social > a:hover {
+    opacity:0.9;
+  }
+  
+  @media (max-width:991px) {
+    .footer-clean .item.social > a {
+      margin-top:40px;
+    }
+  }
+  
+  @media (max-width:767px) {
+    .footer-clean .item.social > a {
+      margin-top:10px;
+    }
+  }
+  
+  .footer-clean .copyright {
+    margin-top:14px;
+    margin-bottom:0;
+    font-size:13px;
+    opacity:0.6;
+  }
+
+  .acceuil img
+  {
+      float: right;
+      margin-right: 70px;
+      margin-top: 80px;
+  }
+
+  section
+  {
+
+    height: 600px; /* Ajustez la hauteur selon vos besoins */
+    width: 100%; 
+  } 
+
+
+  .paragraphe H1 
+  {
+    padding-top:130px;
+    text-align: center;
+    margin-left: 14%;
+    margin-right: auto;
+    max-width: 552px;
+    font-size: 60px;
+    font-weight: 1000;
+    text-align: justify;
+
+}
+.paragraphe p 
+{
+
+    margin-left: 14%;
+    margin-right: auto;
+    padding-top: 4px;
+    max-width: 404px;
+    font-size: 22px;
+}
+  .btn_primary
+  {
+
+    background-color: #0066EE;
+    color: white;
+    border: none;
+    height: 55px;
+    width: 20%;
+    margin-left: 280px;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-family: "Inter", Helvetica, Arial, -apple-system, sans-serif;  
+  }
+
+  .partie_legume .img_salade {
+     text-align: center;
+     margin-top: 100px;
+     background-image: var(--color-primary);
+     color: var(--color-tertiary);  
+     background-color: var(--color-secondary);
+    opacity: 0.5; /* Example of using the 50% opacity color */
+  }
+
+
+  .img_salade h2 {
+
+    color: black;
+
+  }
+
+
+
+/* Style global pour la classe content */
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  /* justify-content: center; */
+  margin-top: 20px;
+}
+
+/* Style pour les boîtes individuelles */
+.box_sante {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  max-width: 320px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
+}
+
+.box_sante:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Style pour les images dans les boîtes */
+.box_sante img {
+  max-width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Style pour les paragraphes */
+.box_sante p {
+  font-size: 16px;
+  text-align: center;
+  color: #333;
+  margin: 10px 0;
+}
+
+/* Style pour le bouton */
+.box_sante .btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  /* transition: background-color 0.3s ease; */
+}
+
+.box_sante .btn-danger:hover {
+  background-color: #c82333;
+}
+
+.partie_sante
+{
+  margin-top: 9%;
+  margin-left: 15%;
+}
+
+.btn_legum {
+  margin-left: 40%;
+  margin-top: 4%;
+  color: white;
+  background-color: #f1a05e;
+  border: solid 2px #f1a05e;
+  text-decoration: none;
+  height: 7%;
+  width: 16%;
+  font-family: "Inter", Helvetica, Arial, -apple-system, sans-serif;  
+  font-size: 23px;
+}
+
+.btn_legum:hover {
+  background-color: white;
+  color: orange;
+}
+
+.btn_sante {
+  margin-left: 25%;
+  margin-top: 4%;
+  color: white;
+  background-color: #7cb8e2;
+  border: solid 2px #7cb8e2;
+  text-decoration: none;
+  height: 7%;
+  width: 16%;
+  font-family: "Inter", Helvetica, Arial, -apple-system, sans-serif;  
+  font-size: 23px;
+}
+
+.btn_sante:hover {
+  background-color: white;
+  color: #7cb8e2;
+}
+
+
+.partie_legume .img_sante img {
+  text-align: center;
+  margin-top: 100px;
+  background-image: var(--color-primary);
+  color: var(--color-tertiary);  
+  background-color: var(--color-secondary);
+ opacity: 0.5; /* Example of using the 50% opacity color */
+
+}
+
+
+
+.img_sante h2 {
+
+ color: black;
+
+}
+
+
+.img_sante img {
+
+  width: -50%;
+  height: 30%;
+
+}
+
+.partie_histoire{
+  padding-top: 9%;
+  text-align: center;
+  
+}
+
+
+.partie_histoire p  {
+  font-size: 20px
+
+}
+
+/* partie footer */ 
+
+.footer-section {
+  background: #f0f0f0; /* Gris clair */
+  color: #333333; /* Texte plus foncé pour le contraste */
+  padding-top: 20px;
+  position: relative;
+}
+
+.footer-bottom {
+  background: #d9d9d9; /* Gris légèrement plus foncé */
+  padding: 20px 0;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.footer-info h3,
+.footer-links a,
+.footer-contact-info i {
+  color: #333333; /* Assurez-vous que le texte est lisible sur le fond gris */
+}
+
+.social-links a {
+  background: #333333; /* Icônes de réseaux sociaux en gris foncé */
+  color: #fff;
+}
+
+.social-links a:hover {
+  background: #555555; /* Couleur au survol */
+}
+
+.footer-links a:hover {
+  color: #555555; /* Couleur au survol */
+}
+
+.footer-bottom-links a:hover {
+  color: #555555; /* Couleur au survol */
+}
+
+
+/* partie navbar */ 
+
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 15px 0;
+}
+
+/* Logo */
+.navbar-brand img.logo {
+  height: 130px;
+  width: auto;
+  margin-left: -80%;
+}
+
+/* Liens de navigation */
+.nav-link {
+  color: #333333;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #3498db;
+}
+
+.nav-link.active {
+  color: #3498db;
+}
+
+/* Dropdown */
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+.dropdown-item {
+  padding: 8px 20px;
+  color: #333333;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+  color: #3498db;
+}
+
+.dropdown-item i {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.nav-user-section .nav-link {
+  display: flex;
+  align-items: center;
+  color: #333333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-user-section .nav-link i {
+  font-size: 24px;
+  margin-right: 8px;
+}
+
+.nav-user-section .nav-link:hover {
+  color: #3498db;
+}
+
+.imageSante img
+{
+  /* width:  auto; */
+  margin-left: 22%;
+  margin-top: 60%;
+  width: 50%;
+  height: 10%;
+  margin-right: 40% ;
+  text-align: center;
+  /* margin-top: 100px; */
+  background-image: var(--color-primary);
+  color: var(--color-tertiary);  
+  background-color: var(--color-secondary);
+ opacity: 0.5; /* Example of using the 50% opacity color */
+ right: 30px;
+}
+.sante-sante
+{
+  height: 10%;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*ssssssss*/
+
+.vegetables-section {
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.header-image {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header-image img {
+  max-width: 200px;
+  height: auto;
+}
+
+.vegetables-gallery {
+  padding: 20px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.vegetable-card {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.vegetable-card:hover {
+  transform: translateY(-5px);
+}
+
+.vegetable-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.vegetable-description {
+  margin: 10px 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+.details-button {
+  display: block;
+  margin: 30px auto;
+  padding: 12px 24px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.details-button:hover {
+  background-color: #218838;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 40px auto;
+  text-align: center;
+  color: #333;
+}
+
+.add-icon {
+  display: block;
+  margin: 20px auto;
+  cursor: pointer;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .gallery-grid {
+      grid-template-columns: 1fr;
+  }
+  
+  .vegetable-card {
+      margin: 10px;
+  }
+}
+
+

@@ -1,0 +1,103 @@
+<!-- <div class="slider-container" 
+     (mouseenter)="onMouseEnter()" 
+     (mouseleave)="onMouseLeave()">
+  <button class="nav-button prev" (click)="previousSlide()">&#8249;</button>
+  
+  <div class="slide">
+    <img [src]="slides[currentIndex].image" 
+         [alt]="slides[currentIndex].message">
+    <div class="message">
+      {{ slides[currentIndex].message }}
+    </div>
+  </div>
+
+  <button class="nav-button next" (click)="nextSlide()">&#8250;</button>
+</div> -->
+
+
+<!-- <div class="slider-container">
+
+
+
+
+
+    <div class="slider-content">
+      <div class="image-section">
+        <img [src]="slides[currentIndex].image" [alt]="slides[currentIndex].title">
+      </div>
+  
+      <div class="text-section">
+        <h2>{{ slides[currentIndex].title }}</h2>
+        <p>{{ slides[currentIndex].description }}</p>
+      </div>
+    </div>
+  
+    <div class="navigation">
+      <button class="nav-button prev" (click)="previousSlide()">&#8249;</button>
+      <button class="nav-button next" (click)="nextSlide()">&#8250;</button>
+    </div>
+  </div> -->
+
+<section class="contact-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="contact-card">
+          <h2 class="text-center mb-4">Contactez-nous</h2>
+
+          <form [formGroup]="contactForm" (ngSubmit)="send()" class="contact-form">
+            <!-- Nom et Prénom -->
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="fullName" formControlName="from_name"
+                placeholder="Votre nom et prénom">
+              <label for="fullName">
+                <i class="fas fa-user"></i> Nom et Prénom
+              </label>
+            </div>
+
+            <!-- Email -->
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="email" formControlName="from_email"
+                placeholder="Votre email">
+              <label for="email">
+                <i class="fas fa-envelope"></i> Email
+              </label>
+            </div>
+
+            <!-- Sujet -->
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="subject" formControlName="sujet" placeholder="Sujet">
+              <label for="subject">
+                <i class="fas fa-heading"></i> Sujet
+              </label>
+            </div>
+            <div class="form-floating mb-3">
+              <textarea class="form-control" id="message" formControlName="message" placeholder="Votre message" rows="4"></textarea>
+              <label for="message">
+                <i class="fas fa-comment"></i> Message
+              </label>
+            </div>
+
+            <!-- Sélection du Coach -->
+            <!-- ... existing code ... -->
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="label" for="coach">Choisir un Coach</label>
+                <select formControlName="coach" class="form-control" id="coach">
+                  <option *ngFor="let coach of coaches" [value]="coach">{{ coach }}</option>
+                </select>
+              </div>
+            </div>
+            <!-- ... existing code ... -->
+            <!-- Bouton d'envoi -->
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary btn-lg submit-btn" [disabled]="!contactForm.valid">
+                <i class="fas fa-paper-plane"></i> Envoyer
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

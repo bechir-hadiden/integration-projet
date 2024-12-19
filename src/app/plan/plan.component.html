@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  <app-navbar></app-navbar><br><br><br>
+  <app-test></app-test>
+  <br><br>
+  <div id="calendar-centainer">
+    <div id="cal-buttons">
+      <div class="row text-center">
+        <div class="col-md-4" id="cal-date-nav-buttons">
+          <button class="btn btn-primary" id="previous" (click)="previous()">
+            Previous
+          </button>
+          <button class="btn btn-primary" id="today" (click)="today()">
+            Today
+          </button>
+          <button class="btn btn-primary" id="next" (click)="next()">
+            Next
+          </button>
+        </div>
+
+        <br><br>
+        <div class="col-md-4">
+          <div class="text-align: center;" id="cal-date-field">
+            {{viewDate | calendarDate:(view + 'ViewTitle') : 'en'}}
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="btn-group">
+            <div class="btn btn-primary" (click)="setView(CalendarView.Month)"
+              [class.selected]="view === CalendarView.Month">Month
+            </div>
+            <div class="btn btn-primary" (click)="setView(CalendarView.Week)"
+              [class.selected]="view === CalendarView.Week">Week
+            </div>
+            <div class="btn btn-primary" (click)="setView(CalendarView.Day)" [class.active]="view === CalendarView.Day">
+              Day
+            </div>
+          </div>
+          <button class="btn btn-primary pull-right" (click)="addEvent()">Add new</button>
+        </div>
+      </div>
+    </div>
+
+    <span [ngSwitch]="view">
+      <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events"
+        [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
+        (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)"
+        [excludeDays]="[0,7]" locale="fr">
+      </mwl-calendar-month-view>
+
+      <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events" locale="fr"
+        (eventClicked)="eventClicked($event)" [refresh]="refresh">
+      </mwl-calendar-week-view>
+
+      <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events" locale="fr"
+        (eventClicked)="eventClicked($event)" [refresh]="refresh">
+      </mwl-calendar-day-view>
+    </span>
+  </div>
+
+  <!-- Modal pour ajouter un événement -->
+  <div class="modal" tabindex="-1" [ngStyle]="{'display': showModal ? 'block' : 'none'}">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Ajouter un événement</h5>
+          <button type="button" class="btn-close" (click)="closeModal()"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Titre</label>
+              <input type="text" class="form-control" [(ngModel)]="newEvent.title" name="title"
+                placeholder="Entrez le titre de l'événement">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Date de début</label>
+              <input type="datetime-local" class="form-control" [(ngModel)]="newEvent.start" name="start">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Date de fin</label>
+              <input type="datetime-local" class="form-control" [(ngModel)]="newEvent.end" name="end">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Couleur</label>
+              <select class="form-control" [(ngModel)]="selectedColor" name="color">
+                <option value="blue">Bleu</option>
+                <option value="red">Rouge</option>
+                <option value="yellow">Jaune</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Description (optionnel)</label>
+              <!-- <textarea class="form-control" [(ngModel)]="newEvent.description" name="description" rows="3"></textarea> -->
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeModal()">Annuler</button>
+          <button type="button" class="btn btn-primary" (click)="saveEvent()">Enregistrer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Backdrop pour le modal -->
+  <div class="modal-backdrop fade show" *ngIf="showModal"></div>
+
+  <!-- Gardez votre code existant mais remplacez le modal par celui-ci -->
+
+  <!-- Template du modal -->
+  <ng-template #modalContent let-close="close">
+    <div class="modal-header">
+      <h5 class="modal-title">Event action occurred</h5>
+      <button type="button" class="close" (click)="close()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div>
+        Action:
+        <pre>{{ modalData?.action }}</pre>
+      </div>
+      <div>
+        Event:
+        <pre>{{ modalData?.event | json }}</pre>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-secondary" (click)="close()">
+        OK
+      </button>
+    </div>
+  </ng-template>
+  <h2 style=" margin-top: 6%; margin-bottom: 6%; margin-left: 3%; text-decoration: underline; color: #0e76a8;">Vidéos Inspirantes pour Explorer le Monde du Sport : </h2>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/w-P91qDl2DU" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/LnLLGzMIuJc" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/n2xRRPQo0nQ" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/n7AlkNPcCGI" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+</body>
+
+</html>
