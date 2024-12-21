@@ -21,10 +21,10 @@ interface StatistiquesSante {
 })
 export class SanteService {
 
-  api_imageSante: string = "http://localhost:8089/projet/api/image/sante";
-  api_image: string = "http://localhost:8089/projet/api/image";
-  api_allImage: string = "http://localhost:8089/projet/api/image/getAllImages";
-  api_allImagesante: string = "http://localhost:8089/projet/api/image/sante/getAllImagesSante";
+  api_imageSante: string = "https://projectsantedockerfile-production.up.railway.app/projet/api/image/sante";
+  api_image: string = "https://projectsantedockerfile-production.up.railway.app/projet/api/image";
+  api_allImage: string = "https://projectsantedockerfile-production.up.railway.app/projet/api/image/getAllImages";
+  api_allImagesante: string = "https://projectsantedockerfile-production.up.railway.app/projet/api/image/sante/getAllImagesSante";
 
   constructor( private http: HttpClient) { }
 
