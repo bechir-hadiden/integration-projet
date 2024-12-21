@@ -41,7 +41,7 @@
             manger. <br>Voici notre liste d'aliments du moment
             à consommer sans moderation</h2>
         <section id="popular-destination">
-            <img src="..\assets\add.png" height="30px" routerLink="/add-legume" *ngIf="authService.isAdmin()" >
+            <img src="..\assets\add.png" height="30px" routerLink="/add-legume" >
             <div class="content">
                 <div class="box" *ngFor="let  event of image">
                     <img [src]="event.image" [alt]="event.name" style="max-width: 300px; height: 300px;">
@@ -89,13 +89,13 @@
         <section class="partie_sante">
             <div class="img_sante">
             </div>
-            <img src="..\assets\add.png" height="30px" routerLink="/add-sante"  *ngIf="authService.isAdmin()">
+            <img src="..\assets\add.png" height="30px" routerLink="/add-sante"  >
             <div class="content">
                 <div class="box_sante" *ngFor="let  event of imagesSante">
                     <img [src]="event.image" [alt]="event.name" style="max-width: 300px; height: 300px;">
                     <p *ngIf="event.message">{{event.message}}</p>
                     <button type="button" class="btn btn-danger" 
-                        (click)="supprimerImageSante(event)" *ngIf="authService.isAdmin()">Supprimer</button>
+                        (click)="supprimerImageSante(event)" >Supprimer</button>
                 </div>
             </div>
             <button class="btn_sante" routerLink="/login">Pour plus de details</button>
