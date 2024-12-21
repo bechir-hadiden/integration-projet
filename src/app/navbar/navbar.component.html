@@ -1,73 +1,67 @@
 <nav class="navbar navbar-expand-lg">
-  <div class="container">
-      <!-- Logo -->
-      <a class="navbar-brand" routerLink="/acceuil">
-          <img src="assets/imgl.png" alt="MORNEGA" class="logo" >
-      </a>
-
-      <!-- Bouton hamburger pour mobile -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!-- Contenu de la navbar -->
-      <div class="collapse navbar-collapse" id="navbarContent">
-          <!-- Menu principal -->
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size: 130%;">
-              <li class="nav-item" >
-                  <a class="nav-link active" routerLink="/acceuil">Nutrition </a>
+    <div class="container">
+        <a class="navbar-brand" routerLink="/acceuil">
+            <img src="assets/imgl.png" alt="MORNEGA" class="logo" >
+        </a>
+  
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size: 130%;">
+                <li class="nav-item" >
+                    <a class="nav-link active"  fragment="sante">Nutrition</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Maladies</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                      Exercice
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Formation Continue</a></li>
+                        <li><a class="dropdown-item" href="#">Coaching</a></li>
+                        <li><a class="dropdown-item" href="#">Certification</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">A propros nous</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/m">Contact</a>
               </li>
-              <li class="nav-item">
-                  <a class="nav-link" routerLink="/acceuil">Maladies</a>
-              </li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                    Exercice
-                  </a>
-                  <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Formation Continue</a></li>
-                      <li><a class="dropdown-item" href="#">Coaching</a></li>
-                      <li><a class="dropdown-item" href="#">Certification</a></li>
-                  </ul>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#">A propros nous</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/m">Contact</a>
-            </li>
-          </ul>
+            </ul>
+  
+  <div class="nav-user-section">
+    <div class="user-actions" >
+        <a routerLink="/login" class="nav-link" >
+            <i class="fas fa-user-circle"></i> Se connecter
+        </a>
 
-<!-- Partie utilisateur -->
-<div class="nav-user-section">
-  <!-- Si non connecté -->
-  <div class="user-actions" *ngIf="!isLoggedIn">
-      <a routerLink="/login" class="nav-link" (click)="login()">
-          <i class="fas fa-user-circle" *ngIf="authService.isloggedIn" (click) = "onLogout()" ></i> Mon compte : {{authService.loggedUser}}
-      </a>
-     
-     <a *ngIf="authService.loggedUser"  >
-        <i class="fas fa-sign-out-alt" *ngIf="authService.isloggedIn" (click) = "onLogout()"  ></i> Déconnexion
-     </a> 
+        <li id="sign-up" *ngIf="authService.isloggedIn">
+            <p  >{{authService.loggedUser}}</p>
 
+          </li>
+    </div>
+  
+    <div class="user-profile dropdown" >
+        <a class="nav-link dropdown-toggle user-menu" href="#" role="button" data-bs-toggle="dropdown" style="margin-right: 100%;">
+            <img  src="../assets/adminstration.png " alt="Administration" class="user-photo" height="50px" > 
+            <span class="user-name"></span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" routerLink="/login"><i class="fas fa-user"></i> Administration </a></li>
+            <li *ngIf="authService.isAdmin()"><a class="dropdown-item" routerLink="/plan"  ><i class="fas fa-user"  ></i> Partie utulisateur </a></li>
+
+            <li><hr class="dropdown-divider"*ngIf="authService.isAdmin()"></li>
+            <li><a class="dropdown-item" href="#" *ngIf="authService.isAdmin()" >
+                <i class="fas fa-sign-out-alt" *ngIf="authService.isloggedIn" (click) = "onLogout()"  ></i> Déconnexion
+            </a></li>
+        </ul>
+    </div>
   </div>
-
-  <!-- Si connecté -->
-  <div class="user-profile dropdown" *ngIf="isLoggedIn">
-      <a class="nav-link dropdown-toggle user-menu" href="#" role="button" data-bs-toggle="dropdown">
-          <img [src]="userPhotoUrl" alt="Photo de profil" class="user-photo">
-          <span class="user-name">{{userName}}</span>
-      </a>
-      <ul class="dropdown-menu dropdown-menu-end">
-          <li><a class="dropdown-item" href=""><i class="fas fa-user"></i> Mon Profil</a></li>
-          <li><a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Paramètres</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#" (click)="logout()">
-              <i class="fas fa-sign-out-alt"></i> Déconnexion
-          </a></li>
-      </ul>
-  </div>
-</div>
-      </div>
-  </div>
-</nav>
+        </div>
+    </div>
+  </nav>
